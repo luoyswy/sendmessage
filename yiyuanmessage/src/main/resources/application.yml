@@ -1,0 +1,33 @@
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  application:
+    name: YIYUAN-MESSAGE-APPLICATION
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/yiyuan?serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: a123456
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: root
+    password: a123456
+    virtual-host: send_news
+#这个是rabbit的配置
+rabbit: 
+  queue: 
+    sendmessage: sendmessage
+  exchange: 
+    directinform: dircetinfo
+#发送信息的类的包名
+list: 
+  packages:
+    - cn.com.yiyuan.application.email.qq
+    - cn.com.yiyuan.application.sms.yd10086
+    
+#远程调用接口
+rpc: 
+  port: 9009
